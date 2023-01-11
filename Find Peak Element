@@ -1,8 +1,8 @@
 
 
-time complexity : o(n) linear traversal 
-space complexity :o(1)
-
+time complexity : o(n)
+space complexity : o(1)
+// } Driver Code Ends
 class Solution
 {
     public:
@@ -39,3 +39,50 @@ class Solution
        
     }
 };
+
+
+ time complexity :o(logn)
+ space complexity: O(n)
+ class Solution
+{
+    public:
+    int peakelement(int arr[] ,int lo ,int high , int n)
+    {
+        
+        int  mid  = lo + (high-lo)/2;
+        
+       
+            if((mid == 0 || arr[mid-1]<=arr[mid])  &&  (mid == n-1 || arr[mid +1] <= arr[mid]))
+            {
+                return mid ;
+            } 
+            
+            else if (mid > 0  &&  arr[mid-1] > arr[mid])
+            {
+                return peakelement( arr , lo , (mid-1) ,n);
+            }
+            else 
+            {
+                return  peakelement( arr , (mid+1) , high ,n);
+            }
+            
+    }
+        
+    
+     int peakElement(int arr[], int n)
+    {
+       // Your code here
+        
+        
+        
+        return peakelement(arr , 0, n-1 ,n );
+        
+          
+         
+       
+       
+    }
+};
+
+
+
